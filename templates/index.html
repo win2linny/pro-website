@@ -1,54 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Big John's Mission Control</title>
+    <!-- Modern Font -->
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        /* Brighter, Cleaner Theme */
-        body { background-color: #f0f2f5; color: #1a1a2e; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; text-align: center; }
-        .container { max-width: 900px; margin: auto; background: #ffffff; padding: 30px; border-radius: 20px; border: 3px solid #3498db; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; }
-        #clock { font-size: 3rem; color: #3498db; font-family: monospace; margin: 20px 0; font-weight: bold; }
-        .cross { width: 80px; margin: 10px auto; filter: drop-shadow(0 0 5px #f1c40f); }
-        
-        /* Nav Menu */
-        .nav-menu { margin: 20px 0; display: flex; justify-content: center; gap: 20px; }
-        .nav-link { color: #3498db; text-decoration: none; font-weight: bold; padding: 10px 20px; border: 2px solid #3498db; border-radius: 25px; transition: 0.3s; }
-        .nav-link:hover { background: #3498db; color: white; }
+        :root {
+            --primary: #3498db;
+            --accent: #f1c40f;
+            --bg: #f8fafc;
+            --text: #1e293b;
+        }
 
-        .verse-box { background: #e8f4fd; padding: 20px; border-radius: 15px; margin: 20px auto; border-left: 8px solid #f1c40f; font-style: italic; color: #2c3e50; }
-        .stats { margin: 15px 0; color: #7f8c8d; font-size: 1.2rem; font-weight: bold; }
+        body { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+
+        .container { 
+            max-width: 800px; 
+            margin: auto; 
+            background: white; 
+            padding: 40px; 
+            border-radius: 24px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .cross { 
+            width: 60px; 
+            margin-bottom: 10px;
+            filter: drop-shadow(0 4px 6px rgba(241, 196, 15, 0.3));
+        }
+
+        h1 { font-weight: 700; font-size: 2rem; margin-bottom: 30px; letter-spacing: -1px; }
+
+        /* Nav Buttons */
+        .nav-menu { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; }
+        .nav-link { 
+            text-decoration: none; 
+            color: var(--primary); 
+            font-weight: 600; 
+            padding: 12px 24px; 
+            border: 2px solid var(--primary); 
+            border-radius: 12px; 
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover { background: var(--primary); color: white; transform: translateY(-2px); }
+
+        /* Clock & Verse */
+        #clock { font-size: 3.5rem; font-weight: 300; color: var(--primary); margin: 20px 0; }
+        
+        .verse-card { 
+            background: #f1f5f9; 
+            padding: 30px; 
+            border-radius: 16px; 
+            margin: 30px 0; 
+            border-left: 6px solid var(--accent);
+            text-align: left;
+        }
+        .verse-label { color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        .verse-text { font-size: 1.25rem; font-style: italic; margin-top: 10px; line-height: 1.6; }
+
+        .marriage-badge {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            padding: 8px 16px;
+            border-radius: 99px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body onload="startTime()">
     <div class="container">
-        <!-- Fixed Cross Link -->
         <img src="https://wikimedia.org" class="cross" alt="Cross">
-        <h1>Big John's Journey</h1>
+        <h1>Mission Control</h1>
         
         <div class="nav-menu">
-            <a href="/about-john" class="nav-link">About John</a>
-            <a href="/about-wife" class="nav-link">About My Proverbs 31 Wife</a>
+            <a href="/about-john" class="nav-link">About Me</a>
+            <a href="/about-wife" class="nav-link">My Proverbs 31 Wife</a>
         </div>
 
         <div id="clock">00:00:00</div>
 
-        <div class="verse-box">
-            <p style="color: #3498db; font-size: 0.9rem; margin-bottom: 5px; font-weight: bold;">Verse of the Day</p>
-            <p id="verse" style="font-size: 1.4rem;">"{{ verse }}"</p>
+        <div class="verse-card">
+            <div class="verse-label">Scripture for Today</div>
+            <div class="verse-text">"{{ verse }}"</div>
         </div>
 
-        <div class="stats">
-            Days Married: <span style="color: #2ecc71;">{{ days }}</span>
+        <div class="marriage-badge">
+            Blessed Together for {{ days }} Days
         </div>
     </div>
 
     <script>
         function startTime() {
             const today = new Date();
-            document.getElementById('clock').innerHTML = today.toLocaleTimeString();
+            document.getElementById('clock').innerHTML = today.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
             setTimeout(startTime, 1000);
         }
     </script>
 </body>
 </html>
-
