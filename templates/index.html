@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Big John's Mission Control</title>
+    <style>
+        /* Brighter, Cleaner Theme */
+        body { background-color: #f0f2f5; color: #1a1a2e; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; text-align: center; }
+        .container { max-width: 900px; margin: auto; background: #ffffff; padding: 30px; border-radius: 20px; border: 3px solid #3498db; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; }
+        #clock { font-size: 3rem; color: #3498db; font-family: monospace; margin: 20px 0; font-weight: bold; }
+        .cross { width: 80px; margin: 10px auto; filter: drop-shadow(0 0 5px #f1c40f); }
+        
+        /* Nav Menu */
+        .nav-menu { margin: 20px 0; display: flex; justify-content: center; gap: 20px; }
+        .nav-link { color: #3498db; text-decoration: none; font-weight: bold; padding: 10px 20px; border: 2px solid #3498db; border-radius: 25px; transition: 0.3s; }
+        .nav-link:hover { background: #3498db; color: white; }
+
+        .verse-box { background: #e8f4fd; padding: 20px; border-radius: 15px; margin: 20px auto; border-left: 8px solid #f1c40f; font-style: italic; color: #2c3e50; }
+        .stats { margin: 15px 0; color: #7f8c8d; font-size: 1.2rem; font-weight: bold; }
+    </style>
+</head>
+<body onload="startTime()">
+    <div class="container">
+        <!-- Fixed Cross Link -->
+        <img src="https://wikimedia.org" class="cross" alt="Cross">
+        <h1>Big John's Journey</h1>
+        
+        <div class="nav-menu">
+            <a href="/about-john" class="nav-link">About John</a>
+            <a href="/about-wife" class="nav-link">About My Proverbs 31 Wife</a>
+        </div>
+
+        <div id="clock">00:00:00</div>
+
+        <div class="verse-box">
+            <p style="color: #3498db; font-size: 0.9rem; margin-bottom: 5px; font-weight: bold;">Verse of the Day</p>
+            <p id="verse" style="font-size: 1.4rem;">"{{ verse }}"</p>
+        </div>
+
+        <div class="stats">
+            Days Married: <span style="color: #2ecc71;">{{ days }}</span>
+        </div>
+    </div>
+
+    <script>
+        function startTime() {
+            const today = new Date();
+            document.getElementById('clock').innerHTML = today.toLocaleTimeString();
+            setTimeout(startTime, 1000);
+        }
+    </script>
+</body>
+</html>
+
