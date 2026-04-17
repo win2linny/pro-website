@@ -1,8 +1,12 @@
 import random
+import requests
 from datetime import date
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
+
+# Your PocketBase URL
+PB_URL = "http://66.228.58"
 
 verses = [
     "For I know the plans I have for you, declares the Lord. — Jeremiah 29:11",
@@ -18,18 +22,41 @@ def home():
     wedding_day = date(2025, 5, 2)
     today = date.today()
     days_married = (today - wedding_day).days
-    return render_template('index.html', verse=selected_verse, days=days_married)
+    
+    # Fetch existing prayers from PocketBase to show on the page
+    try:
+        response = requests.get(PB_URL)
+        prayers = response.json().get('items', [])
+    except:
+        prayers = []
 
-# New Route for Your Bio
+    return render_template('index.html', verse=selected_verse, days=days_married, prayers=prayers)
+
+# This route handles the "Submit" button and clears the box
+@app.route('/submit-prayer', methods=['POST'])
+def submit_prayer():
+    prayer_text = request.form.get('prayer_text')
+    
+    if prayer_text:
+        # Send the prayer to your PocketBase "filing cabinet"
+        payload = {
+            "text": prayer_text,
+            "is_answered": False,
+            "category": "General"
+        }
+        requests.post(PB_URL, json=payload)
+    
+    # This "redirect" is what clears the text box by refreshing the page
+    return redirect(url_for('home'))
+
 @app.route('/about-john')
 def about_john():
     return render_template('about_john.html')
 
-# New Route for Your Wife's Bio
 @app.route('/about-wife')
 def about_wife():
     return render_template('about_wife.html')
 
 if __name__ == '__main__':
-    # We use port 80 here because Docker maps it to 8080 outside
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=5000, threaded=True)
+
