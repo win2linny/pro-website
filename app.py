@@ -6,7 +6,7 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 # Your PocketBase URL
-PB_URL = "http://66.228.58"
+PB_URL = "http://66.228.58.24/api/collections/prayers/records"
 
 verses = [
     "For I know the plans I have for you, declares the Lord. — Jeremiah 29:11",
@@ -25,7 +25,7 @@ def home():
     
     # Fetch existing prayers from PocketBase to show on the page
     try:
-        response = requests.get(PB_URL)
+        response = requests.get(PB_URL, timeout=3)
         prayers = response.json().get('items', [])
     except:
         prayers = []
@@ -44,7 +44,7 @@ def submit_prayer():
             "is_answered": False,
             "category": "General"
         }
-        requests.post(PB_URL, json=payload)
+        requests.post(PB_URL, json=payload, timeout=3)
     
     # This "redirect" is what clears the text box by refreshing the page
     return redirect(url_for('home'))
@@ -57,6 +57,16 @@ def about_john():
 def about_wife():
     return render_template('about_wife.html')
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, threaded=True)
+if __name__ == "__main__":
+    # This tells Flask to use the keys we got from Certbot
+    # Note: I removed the "://" from the path
+    app.run(
+        host='0.0.0.0', 
+        port=443, 
+        threaded=True, 
+        ssl_context=(
+            '/etc/letsencrypt/live/familyfaithtracker.com/fullchain.pem', 
+            '/etc/letsencrypt/live/familyfaithtracker.com/privkey.pem'
+        )
+    )
 

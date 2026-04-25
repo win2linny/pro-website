@@ -1,0 +1,44 @@
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:443
+ * Running on https://66.228.58.24:443
+Press CTRL+C to quit
+35.151.26.130 - - [24/Apr/2026 21:39:40] "GET / HTTP/1.1" 200 -
+35.151.26.130 - - [24/Apr/2026 21:39:40] "GET /static/style.css HTTP/1.1" 200 -
+35.151.26.130 - - [24/Apr/2026 21:39:40] "GET /favicon.ico HTTP/1.1" 404 -
+35.151.26.130 - - [24/Apr/2026 21:39:52] "GET / HTTP/1.1" 200 -
+35.151.26.130 - - [24/Apr/2026 21:39:53] "GET /static/style.css HTTP/1.1" 304 -
+125.20.210.182 - - [24/Apr/2026 21:40:39] "POST /cgi-bin/../../../../../../../../../../bin/sh HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:40:43] "POST /cgi-bin/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/bin/sh HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:40:52] "POST /hello.world?%ADd+allow_url_include%3d1+%ADd+auto_prepend_file%3dphp://input HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:40:57] "POST /?%ADd+allow_url_include%3d1+%ADd+auto_prepend_file%3dphp://input HTTP/1.1" 405 -
+125.20.210.182 - - [24/Apr/2026 21:41:01] "GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:41:05] "GET /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:41:08] "GET /vendor/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:41:13] "GET /vendor/phpunit/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:41:20] "GET /vendor/phpunit/phpunit/LICENSE/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:41:24] "GET /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:41:32] "GET /phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:41:36] "GET /phpunit/phpunit/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:41:41] "GET /phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:41:45] "GET /phpunit/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:41:53] "GET /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:42:05] "GET /lib/phpunit/phpunit/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:42:18] "GET /lib/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:42:27] "GET /lib/phpunit/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:42:32] "GET /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:42:35] "GET /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:42:54] "GET /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:43:00] "GET /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+125.20.210.182 - - [24/Apr/2026 21:43:17] "GET /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 404 -
+35.151.26.130 - - [24/Apr/2026 21:44:19] "GET / HTTP/1.1" 200 -
+35.151.26.130 - - [24/Apr/2026 21:44:19] "GET / HTTP/1.1" 200 -
+35.151.26.130 - - [24/Apr/2026 21:44:19] "GET /static/style.css HTTP/1.1" 304 -
+35.151.26.130 - - [24/Apr/2026 21:44:19] "GET /static/style.css HTTP/1.1" 200 -
+35.151.26.130 - - [24/Apr/2026 21:44:19] "GET /favicon.ico HTTP/1.1" 404 -
+35.151.26.130 - - [24/Apr/2026 21:44:19] "GET /favicon.ico HTTP/1.1" 404 -
+35.151.26.130 - - [24/Apr/2026 21:45:16] "GET / HTTP/1.1" 200 -
+35.151.26.130 - - [24/Apr/2026 21:45:16] "GET /static/style.css HTTP/1.1" 304 -
+35.151.26.130 - - [24/Apr/2026 21:45:17] "GET /favicon.ico HTTP/1.1" 404 -
