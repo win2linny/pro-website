@@ -1,0 +1,41 @@
+:root {
+    --bg: #000000;       /* Deep Black */
+    --card: #1a1a1a;     /* Dark Grey */
+    --accent: #d4af37;   /* Metallic Gold */
+    --text: #ffffff;     /* White */
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: sans-serif;
+    margin: 0;
+    text-align: center;
+}
+
+nav {
+    background: #111;
+    padding: 20px;
+    border-bottom: 2px solid var(--accent);
+}
+
+.container {
+    background: var(--card);
+    margin: 50px auto;
+    padding: 30px;
+    max-width: 600px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+h1 { color: var(--accent); }
+
+button {
+    background-color: var(--accent);
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
